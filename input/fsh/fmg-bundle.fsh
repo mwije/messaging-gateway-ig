@@ -10,5 +10,5 @@ Description: "Messages to be delivered"
 * entry contains
     message 1..* and
     entity 0..*
-* entry[message].resource only OutboundCommunication
+* entry[message].resource only FMGOutboundCommunicationRequest
 * entry[entity].resource only Patient or Practitioner or Group
