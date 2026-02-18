@@ -1,3 +1,3 @@
 # messaging-gateway-ig
 
-Feel free to modify this index page with your own awesome content!
+“This implementation does not create outbound Communication resources. Delivery state is represented via status transitions on OutboundCommunication (CommunicationRequest profile).”
