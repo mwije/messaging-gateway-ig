@@ -13,3 +13,4 @@ Description: "Messages to be delivered"
 * occurrence[x] only dateTime
 * occurrenceDateTime 1..1
 * status 1..1
+* status from FMGOutboundCommunicationRequestStatusVS (required)

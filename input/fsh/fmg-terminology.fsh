@@ -22,3 +22,29 @@ Title: "Messaging Channel Extension"
 Description: "Specifies the messaging platform when ContactPoint.system = other"
 * value[x] only code
 * valueCode from FMGMessagingChannelVS (required)
+
+
+ValueSet: FMGInboundCommunicationStatusVS
+Id: fmg-inbound-communication-status
+Title: "FMG Inbound Communication Status"
+Description: "Permitted status values for inbound messages"
+* ^status = #active
+
+* include codes from system http://hl7.org/fhir/event-status
+    where code in (#completed, #entered-in-error)
+
+
+ValueSet: FMGOutboundCommunicationRequestStatusVS
+Id: fmg-outbound-communicationrequest-status
+Title: "FMG Outbound CommunicationRequest Status"
+Description: "Permitted status values for outbound delivery"
+
+* include codes from system http://hl7.org/fhir/request-status
+    where code in (
+        #draft,
+        #active,
+        #on-hold,
+        #revoked,
+        #completed,
+        #entered-in-error
+    )
