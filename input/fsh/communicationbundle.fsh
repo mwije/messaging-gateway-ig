@@ -9,7 +9,7 @@ Description: "Messages to be delivered"
 * entry ^slicing.rules = #open
 * entry.resource 1..1
 * entry contains
-    message 1..*
+    message 1..* and
     entity 0..*
 * entry[message].resource only OutboundCommunication
 * entry[entity].resource only Patient or Practitioner or Group
