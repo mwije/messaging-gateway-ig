@@ -31,7 +31,7 @@ Description: "Permitted status values for inbound messages"
 * ^status = #active
 
 * include codes from system http://hl7.org/fhir/event-status
-    where code in (#completed, #entered-in-error)
+    where code in (#completed and #entered-in-error)
 
 
 ValueSet: FMGOutboundCommunicationRequestStatusVS
@@ -40,11 +40,4 @@ Title: "FMG Outbound CommunicationRequest Status"
 Description: "Permitted status values for outbound delivery"
 
 * include codes from system http://hl7.org/fhir/request-status
-    where code in (
-        #draft,
-        #active,
-        #on-hold,
-        #revoked,
-        #completed,
-        #entered-in-error
-    )
+    where code in (#draft and #active and #on-hold and #revoked and #completed and #entered-in-error)
