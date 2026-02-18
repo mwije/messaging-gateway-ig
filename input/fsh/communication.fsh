@@ -6,7 +6,7 @@ Description: "Messages received"
 * payload 1..*
 * payload.content[x] only Attachment
 * payload.contentAttachment 1..1
-* sender 1..*
+* sender 0..1
 * sender.identifier 0..1 MS
 * sender.reference 0..1
 * sender obeys ref-identifier-or-literal
