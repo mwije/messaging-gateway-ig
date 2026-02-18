@@ -28,10 +28,10 @@ ValueSet: FMGInboundCommunicationStatusVS
 Id: fmg-inbound-communication-status
 Title: "FMG Inbound Communication Status"
 Description: "Permitted status values for inbound messages"
-* ^status = #active
 
-* include codes from system http://hl7.org/fhir/event-status
-    where code in (#completed and #entered-in-error)
+* include http://hl7.org/fhir/event-status#completed
+* include http://hl7.org/fhir/event-status#entered-in-error
+
 
 
 ValueSet: FMGOutboundCommunicationRequestStatusVS
@@ -39,5 +39,10 @@ Id: fmg-outbound-communicationrequest-status
 Title: "FMG Outbound CommunicationRequest Status"
 Description: "Permitted status values for outbound delivery"
 
-* include codes from system http://hl7.org/fhir/request-status
-    where code in (#draft and #active and #on-hold and #revoked and #completed and #entered-in-error)
+* include http://hl7.org/fhir/request-status#draft
+* include http://hl7.org/fhir/request-status#active
+* include http://hl7.org/fhir/request-status#on-hold
+* include http://hl7.org/fhir/request-status#revoked
+* include http://hl7.org/fhir/request-status#completed
+* include http://hl7.org/fhir/request-status#entered-in-error
+
