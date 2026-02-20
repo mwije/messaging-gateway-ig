@@ -4,11 +4,11 @@
 
 The gateway distinguishes between two distinct message directions:
 
-- **[InboundMessage](StructureDefinition-FMGInboundCommunication.html)**
-  FMGInboundCommunication (Profile of Communication)
+- **InboundMessage** - [FMGInboundCommunication](StructureDefinition-FMGInboundCommunication.html)
+  (Profile of [Communication]({{site.data.fhir.path | append 'communication.html'}}))
 
-- **[OutboundMessageRequest](StructureDefinition-FMGOutboundCommunicationRequest.html)** 
-  FMGOutboundCommunicationRequest (Profile of CommunicationRequest)
+- **OutboundMessageRequest** - [FMGOutboundCommunicationRequest](StructureDefinition-FMGOutboundCommunicationRequest.html)
+   (Profile of [CommunicationRequest]({{site.data.fhir.path | append 'communicationrequest.html'}}))
 
 This separation enforces clear semantic boundaries:
 
@@ -25,7 +25,7 @@ External systems submit messages to the gateway.
 
 These are recorded as:
 
-- [Communication]({{site.data.fhir.path}} | append 'communication.html') resources
+- [Communication]({{site.data.fhir.path | append 'communication.html'}}) resources
 - Conforming to the FMGInboundCommunication profile
 - Immutable after successful persistence
 
@@ -65,7 +65,7 @@ This element represents the earliest allowed dispatch time.
 
 Outbound messages are modeled as:
 
-- [CommunicationRequest]({{site.data.fhir.path}} | append 'communicationrequest.html')
+- [CommunicationRequest]({{site.data.fhir.path | append 'communicationrequest.html'}})
 - Conforming to the FMGOutboundCommunicationRequest profile
 
 These represent the directive:
