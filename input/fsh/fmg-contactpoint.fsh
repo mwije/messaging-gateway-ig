@@ -1,7 +1,6 @@
 
 Profile: FMGMessagingContactPoint
 Parent: ContactPoint
-Id: fmg-contactpoint
 Description: "ContactPoint with required messaging channel extension when system = other"
 
 * extension contains FMGMessagingChannelExtension named messagingChannel 0..1

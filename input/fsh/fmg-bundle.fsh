@@ -1,7 +1,6 @@
 
 Profile: FMGOutboundTransactionBundle
 Parent: Bundle
-Id : fmg-order-bundle
 Description: "Outgoing Message Bundle"
 * type = #transaction (exactly)
 * entry ^slicing.discriminator.type = #type

@@ -14,15 +14,20 @@
 This Implementation Guide defines a FHIR-based messaging gateway architecture 
 for structured inbound and outbound message exchange.
 
-The gateway distinguishes between:
+The gateway models message flow using two distinct profiles:
 
-- **[InboundCommunication](https://mwije.github.io/fhir-messaging-gateway-ig/StructureDefinition-FMGInboundCommunication.html)** (Profile of Communication)
-- **[OutboundCommunicationRequest](https://mwije.github.io/fhir-messaging-gateway-ig/StructureDefinition-FMGOutboundCommunicationRequest.html)** (Profile of CommunicationRequest)
+- **[InboundCommunication](https://mwije.github.io/fhir-messaging-gateway-ig/StructureDefinition-FMGInboundCommunication.html)** 
+  A profile of Communication representing messages received by the gateway as immutable records.
 
-The design intentionally separates:
+- **[OutboundCommunicationRequest](https://mwije.github.io/fhir-messaging-gateway-ig/StructureDefinition-FMGOutboundCommunicationRequest.html)**
+  A profile of CommunicationRequest representing instructions to deliver a message to an external destination.
 
-- Messages received by the gateway
-- Messages to be delivered externally
+This separation enforces a clear architectural boundary:
+
+- Inbound messages are factual records of what was received.
+- Outbound messages are request-driven delivery actions initiated by the system.
+
+The gateway avoids overloading a single resource with dual responsibilities, distinguishing reception from delivery intent.
 
 ### Architectural Principles
 

@@ -1,33 +1,34 @@
 ### Overview
 
-This Implementation Guide defines a FHIR-based messaging gateway architecture 
-for structured inbound and outbound message exchange.
+This Implementation Guide defines a FHIR-based messaging gateway architecture for structured inbound and outbound message exchange.
 
-The gateway distinguishes between:
+The gateway models message flow using two distinct profiles:
 
-- **[InboundCommunication](StructureDefinition-FMGInboundCommunication.html)** (Profile of Communication)
-- **[OutboundCommunicationRequest](StructureDefinition-FMGOutboundCommunicationRequest.html)** (Profile of CommunicationRequest)
+- **[InboundCommunication](StructureDefinition-FMGInboundCommunication.html)** – a profile of Communication representing messages received by the gateway as immutable records.
+- **[OutboundCommunicationRequest](StructureDefinition-FMGOutboundCommunicationRequest.html)** – a profile of CommunicationRequest representing delivery intent toward external systems.
 
-The design intentionally separates:
-- Messages received by the gateway
-- Messages to be delivered externally
+Reception and delivery are modeled separately to preserve semantic clarity, traceability, and alignment with FHIR’s event vs. request pattern.
 
 ### Architectural Principles
 
-- Inbound messages are immutable records.
-- Outbound messages are request-driven orchestration artifacts.
-- Attachments are used as the message payload mechanism.
+- Inbound messages are immutable event records.
+- Outbound messages represent explicit delivery intent.
+- Payloads are conveyed using attachments to preserve transport neutrality.
+- Transport channels are extensible beyond the base FHIR `ContactPoint` value set through governed terminology and invariant enforcement.
 
 ### Scope
 
 This guide focuses exclusively on:
-- Message transport modeling
-- Payload handling
-- Delivery tracking
 
-It does not define:
+- Message transport modeling
+- Payload encapsulation
+- Delivery orchestration and tracking
+
+It intentionally does not define:
+
 - Clinical workflows
 - Domain-specific content models
+- Business process semantics beyond message transport
 
 ### Status
 
@@ -35,4 +36,4 @@ Draft (CI Build)
 
 ### FHIR Version Compatibility
 
-This Implementation Guide is authored against **FHIR R4 (4.0.1)** and is intentionally designed to remain compatible with R4B and R5 where structural alignment is maintained. Validation for this publication is performed against FHIR R4.
+This guide is authored against **FHIR R4 (4.0.1)** and designed to remain structurally compatible with R4B and R5 where alignment permits. Validation for this publication is performed against FHIR R4.

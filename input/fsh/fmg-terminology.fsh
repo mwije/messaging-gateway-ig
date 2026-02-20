@@ -1,6 +1,5 @@
 
 CodeSystem: FMGMessagingChannelCS
-Id: fmg-channel
 Title: "Messaging Channel"
 * #sms
 * #whatsapp
@@ -11,13 +10,11 @@ Title: "Messaging Channel"
 
 
 ValueSet: FMGMessagingChannelVS
-Id: fmg-channel-vs
 Title: "Messaging Channel ValueSet"
 * include codes from system FMGMessagingChannelCS
 
 
 Extension: FMGMessagingChannelExtension
-Id: fmg-channel-extension
 Title: "Messaging Channel Extension"
 Description: "Specifies the messaging platform when ContactPoint.system = other"
 * value[x] only code
@@ -35,7 +32,6 @@ Description: "Permitted status values for inbound messages"
 
 
 ValueSet: FMGOutboundCommunicationRequestStatusVS
-Id: fmg-outbound-communicationrequest-status
 Title: "FMG Outbound CommunicationRequest Status"
 Description: "Permitted status values for outbound delivery"
 

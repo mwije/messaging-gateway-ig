@@ -2,10 +2,10 @@
 
 The gateway distinguishes between two distinct message directions:
 
-- **InboundMessage** - [FMGInboundCommunication](StructureDefinition-FMGInboundCommunication.html)
+- **Inbound Messages** - [FMGInboundCommunication](StructureDefinition-FMGInboundCommunication.html)
   (Profile of [Communication]({{site.data.fhir.path | append: 'communication.html'}}))
 
-- **OutboundMessageRequest** - [FMGOutboundCommunicationRequest](StructureDefinition-FMGOutboundCommunicationRequest.html)
+- **Outbound Messages** - [FMGOutboundCommunicationRequest](StructureDefinition-FMGOutboundCommunicationRequest.html)
    (Profile of [CommunicationRequest]({{site.data.fhir.path | append: 'communicationrequest.html'}}))
 
 This separation enforces clear semantic boundaries:
@@ -137,6 +137,32 @@ Inbound messages do not support intermediate delivery states.
 - entered-in-error (technical error)
 
 Status transitions reflect delivery control, not payload mutation.
+
+---
+
+#### Messaging Channel Modeling
+
+FHIR `ContactPoint.system` defines a fixed set of transport mechanisms.  
+Modern messaging gateways often require support for additional platforms (e.g., WhatsApp) that are not represented in the standard value set.
+
+Rather than redefining or extending the core `ContactPointSystem` terminology, this guide introduces a governed messaging channel taxonomy:
+
+- A dedicated CodeSystem **[FMGMessagingChannel]**(StructureDefinition-FMGMessagingChannel.html)
+- A required ValueSet binding applied conditionally when extending beyond the standard [ContactPointSystem]({{site.data.fhir.path | append: 'valueset-contact-point-system.html' }}) value set
+- A contextual extension to qualify non-standard transport channels
+
+This guide defines **[FMGMessagingContactPoint](StructureDefinition-FMGMessagingContactPoint.html)**, a constrained profile of [ContactPoint]({{site.data.fhir.path | append: 'datatypes.html#ContactPoint' }}).
+
+When `ContactPoint.system = other`, a required extension SHALL specify the messaging channel from the defined ValueSet.  
+An invariant enforces this rule at validation time.
+
+##### Design Rationale
+
+- Preserves the integrity of the base FHIR model
+- Avoids modification of standard value sets
+- Ensures explicit and unambiguous identification of non-standard channels
+- Enforces semantic clarity through invariant-based validation
+- Enables controlled future expansion through terminology governance
 
 ---
 
