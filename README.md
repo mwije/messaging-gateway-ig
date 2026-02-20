@@ -1,4 +1,4 @@
-# FMG FHIR Messaging Gateway IG
+# FHIR Messaging Gateway (FMG) - FHIR Implementation Guide
 
 [![FHIR R4](https://img.shields.io/badge/FHIR-R4-blue)](https://hl7.org/fhir/R4/)
 [![FHIR R5 Compatible](https://img.shields.io/badge/FHIR-R5%20Compatible-lightblue)](https://hl7.org/fhir/R5/)
@@ -83,11 +83,7 @@ The **published IG** is automatically generated from the source files and update
 
 
 ## License
-
-This project is licensed under **[MIT License](LICENSE)**:
-
-- You are free to **share, adapt, and reuse** the content
-- Please credit the original repository and author
+You are free to **share, adapt, and reuse** the content under the **[MIT License](LICENSE)**:
 
 
 ## Resources & Tools
