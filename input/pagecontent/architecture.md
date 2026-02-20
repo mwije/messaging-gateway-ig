@@ -1,13 +1,13 @@
-# Architecture
+## Architecture
 
-## Overview
+### Overview
 
 The gateway distinguishes between two distinct message directions:
 
-- **Inbound Messages**  
+- **[InboundMessage](StructureDefinition-FMGInboundCommunication.html)**
   FMGInboundCommunication (Profile of Communication)
 
-- **Outbound Messages**  
+- **[OutboundMessageRequest](StructureDefinition-FMGOutboundCommunicationRequest.html)** 
   FMGOutboundCommunicationRequest (Profile of CommunicationRequest)
 
 This separation enforces clear semantic boundaries:
@@ -17,15 +17,15 @@ This separation enforces clear semantic boundaries:
 
 ---
 
-## Architectural Model
+### Architectural Model
 
-### 1. External System → Gateway (Inbound)
+#### External System → Gateway (Inbound)
 
 External systems submit messages to the gateway.
 
 These are recorded as:
 
-- `Communication` resources
+- [Communication]({{site.data.fhir.path}} | append 'communication.html') resources
 - Conforming to the FMGInboundCommunication profile
 - Immutable after successful persistence
 
@@ -37,7 +37,7 @@ They SHALL NOT be used to initiate outbound delivery.
 
 ---
 
-### 2. Internal Processing
+#### Internal Processing
 
 Upon reception, the gateway SHALL persist the message in an internal database.
 
@@ -47,7 +47,7 @@ FHIR resources represent the integration boundary only.
 
 ---
 
-### Outbound Scheduling Semantics
+#### Outbound Scheduling Semantics
 
 Outbound delivery may occur:
 
@@ -61,11 +61,11 @@ This element represents the earliest allowed dispatch time.
 
 ---
 
-### 3. Gateway → External System (Outbound)
+#### Gateway → External System (Outbound)
 
 Outbound messages are modeled as:
 
-- `CommunicationRequest`
+- [CommunicationRequest]({{site.data.fhir.path}} | append 'communicationrequest.html')
 - Conforming to the FMGOutboundCommunicationRequest profile
 
 These represent the directive:
@@ -76,9 +76,9 @@ They undergo lifecycle transitions reflecting delivery orchestration.
 
 ---
 
-## Design Principles
+### Design Principles
 
-### Directional Exclusivity
+#### Directional Exclusivity
 
 | Direction | Resource Type |
 |------------|----------------|
@@ -92,7 +92,7 @@ Rules:
 
 ---
 
-### Identifier Policy
+#### Identifier Policy
 
 Business identifiers SHALL be used for external correlation.
 
@@ -103,7 +103,7 @@ Within transaction Bundles, `urn:uuid` MAY be used for intra-Bundle referencing.
 
 ---
 
-### Payload Strategy
+#### Payload Strategy
 
 Payload SHALL be represented using `Attachment`.
 
@@ -118,18 +118,18 @@ The gateway does not constrain attachment content semantics.
 
 ---
 
-### Lifecycle Separation
+#### Lifecycle Separation
 
 Inbound and outbound flows have independent lifecycle models.
 
-#### Inbound (Communication.status)
+##### Inbound (Communication.status)
 
 - completed
 - entered-in-error
 
 Inbound messages do not support intermediate delivery states.
 
-#### Outbound (CommunicationRequest.status)
+##### Outbound (CommunicationRequest.status)
 
 - draft
 - active (**eligible for delivery**)
@@ -142,7 +142,7 @@ Status transitions reflect delivery control, not payload mutation.
 
 ---
 
-## Conformance Expectations
+### Conformance Expectations
 
 Implementations SHALL:
 
@@ -155,7 +155,7 @@ Implementations SHALL:
 
 ---
 
-## Out of Scope
+### Out of Scope
 
 This guide does not define:
 

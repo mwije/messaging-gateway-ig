@@ -1,5 +1,3 @@
-## FHIR Messaging Gateway Implementation Guide
-
 ### Overview
 
 This Implementation Guide defines a FHIR-based messaging gateway architecture 
