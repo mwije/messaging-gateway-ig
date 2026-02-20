@@ -5,8 +5,8 @@ for structured inbound and outbound message exchange.
 
 The gateway distinguishes between:
 
-- **[InboundMessage](StructureDefinition-FMGInboundCommunication.html)** (Profile of Communication)
-- **[OutboundMessageRequest](StructureDefinition-FMGOutboundCommunicationRequest.html)** (Profile of CommunicationRequest)
+- **[InboundCommunication](StructureDefinition-FMGInboundCommunication.html)** (Profile of Communication)
+- **[OutboundCommunicationRequest](StructureDefinition-FMGOutboundCommunicationRequest.html)** (Profile of CommunicationRequest)
 
 The design intentionally separates:
 - Messages received by the gateway
@@ -35,4 +35,4 @@ Draft (CI Build)
 
 ### FHIR Version Compatibility
 
-This Implementation Guide is authored against **FHIR R4 (4.0.1)** and is intentionally designed to remain compatible with R4B, R5, and R6 where structural alignment is maintained. Validation for this publication is performed against FHIR R4.
+This Implementation Guide is authored against **FHIR R4 (4.0.1)** and is intentionally designed to remain compatible with R4B and R5 where structural alignment is maintained. Validation for this publication is performed against FHIR R4.

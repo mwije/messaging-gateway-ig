@@ -1,8 +1,9 @@
 # FHIR Messaging Gateway (FMG) - FHIR Implementation Guide
 
 [![FHIR R4](https://img.shields.io/badge/FHIR-R4-blue)](https://hl7.org/fhir/R4/)
-[![FHIR R5 Compatible](https://img.shields.io/badge/FHIR-R5%20Compatible-lightblue)](https://hl7.org/fhir/R5/)
-![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
+[![FHIR R4B Compatible](https://img.shields.io/badge/FHIR-R4B%20Compatible-lightblue)](https://hl7.org/fhir/R4B/)
+[![FHIR R5 Compatible](https://img.shields.io/badge/FHIR-R5%20Compatible-lightgrey)](https://hl7.org/fhir/R5/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 [![Pages](https://img.shields.io/badge/View-Implementation%20Guide-blue)
 ![IG Status](https://img.shields.io/badge/IG%20Status-Draft-lightgrey)](https://mwije.github.io/fhir-messaging-gateway-ig/)
@@ -15,8 +16,8 @@ for structured inbound and outbound message exchange.
 
 The gateway distinguishes between:
 
-- **[InboundMessage](https://mwije.github.io/fhir-messaging-gateway-ig/StructureDefinition-FMGInboundCommunication.html)** (Profile of Communication)
-- **[OutboundMessageRequest](https://mwije.github.io/fhir-messaging-gateway-ig/StructureDefinition-FMGOutboundCommunicationRequest.html)** (Profile of CommunicationRequest)
+- **[InboundCommunication](https://mwije.github.io/fhir-messaging-gateway-ig/StructureDefinition-FMGInboundCommunication.html)** (Profile of Communication)
+- **[OutboundCommunicationRequest](https://mwije.github.io/fhir-messaging-gateway-ig/StructureDefinition-FMGOutboundCommunicationRequest.html)** (Profile of CommunicationRequest)
 
 The design intentionally separates:
 
@@ -45,7 +46,7 @@ It does **not** define:
 
 ## FHIR Version Compatibility
 
-Authored against **FHIR R4 (4.0.1)** and intentionally designed to remain compatible with **R4B, R5, and R6**. Validation is performed against FHIR R4.
+Authored against **FHIR R4 (4.0.1)** and intentionally designed to remain compatible with **R4B and R5**. Validation is performed against FHIR R4.
 
 
 ## Build & Validation
@@ -80,10 +81,6 @@ Contributions are welcome via pull requests. Please:
 - Ensure CI validation passes before merging
 
 The **published IG** is automatically generated from the source files and updated via GitHub Pages.
-
-
-## License
-You are free to **share, adapt, and reuse** the content under the **[MIT License](LICENSE)**:
 
 
 ## Resources & Tools
